@@ -38,7 +38,7 @@ const image = {
   round: "https://images.pexels.com/photos/48600/pexels-photo-48600.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
   layered: "https://images.pexels.com/photos/35652150/pexels-photo-35652150.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
   ripple: "https://images.pexels.com/photos/36744232/pexels-photo-36744232.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-  fabric: "https://images.pexels.com/photos/28601583/pexels-photo-28601583.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+  fabric: "/images/col_tul.png",
   smoke: "https://images.pexels.com/photos/9694698/pexels-photo-9694698.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
   sparks: "https://images.pexels.com/photos/8813905/pexels-photo-8813905.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
   citrus: "https://images.pexels.com/photos/1987010/pexels-photo-1987010.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
