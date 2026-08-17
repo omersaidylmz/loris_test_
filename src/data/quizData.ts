@@ -15,8 +15,8 @@ export interface QuizStep {
 }
 
 const image = {
-  maskulen: "/images/maskulen/image.png",
-  feminen: "/images/feminen/Ekran_goruntusu_2026-08-17_200909.png",
+  maskulen: "/images/cinsiyet/erkek.png",
+  feminen: "/images/cinsiyet/kadın.png",
   texture: "https://images.pexels.com/photos/31650443/pexels-photo-31650443.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
   linen: "https://images.pexels.com/photos/7794365/pexels-photo-7794365.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
   velvet: "https://images.pexels.com/photos/7717505/pexels-photo-7717505.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
