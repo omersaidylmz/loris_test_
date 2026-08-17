@@ -11,7 +11,7 @@ function App() {
   const [stepIndex, setStepIndex] = useState(0);
   const [answers, setAnswers] = useState<string[][]>([]);
   const [selectedProfiles, setSelectedProfiles] = useState<string[]>([]);
-  const [gender, setGender] = useState("unisex");
+  const [gender, setGender] = useState("maskulen");
 
   const handleStart = useCallback(() => {
     setPhase("quiz");
@@ -29,7 +29,7 @@ function App() {
       const updatedProfiles = [...selectedProfiles];
       for (const p of newProfiles) updatedProfiles.push(p);
 
-      if (step.id === "cinsiyet" && selectedOptions[0]) {
+      if (step.id === "identity" && selectedOptions[0]) {
         setGender(selectedOptions[0].id);
       }
 
@@ -68,7 +68,7 @@ function App() {
     setStepIndex(0);
     setAnswers([]);
     setSelectedProfiles([]);
-    setGender("unisex");
+    setGender("maskulen");
   }, []);
 
   if (phase === "start") {

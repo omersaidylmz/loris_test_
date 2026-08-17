@@ -35,9 +35,8 @@ export function computeMatches(
   topN: number = 5,
 ): MatchResult[] {
   const genderMap: Record<string, string[]> = {
-    erkek: ["Maskulin"],
-    kadin: ["Feminin"],
-    unisex: ["Unisex"],
+    maskulen: ["Maskulin"],
+    feminen: ["Feminin"],
   };
   const genderProfiles = genderMap[gender] || [];
 
@@ -88,7 +87,6 @@ function genderToKeyword(g: string): string {
   switch (g) {
     case "Maskulin": return "erkek";
     case "Feminin": return "kadın";
-    case "Unisex": return "unisex";
     default: return "";
   }
 }

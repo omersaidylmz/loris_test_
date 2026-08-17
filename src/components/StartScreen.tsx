@@ -32,7 +32,7 @@ export function StartScreen({ onStart }: StartScreenProps) {
         </h1>
 
         <p className="mt-6 max-w-xl text-base leading-relaxed text-gray-300 sm:text-lg">
-          On adımlık görsel bir yolculukla sana en uygun parfümleri keşfet.
+          Dokuz adımlık görsel bir yolculukla sana en uygun parfümleri keşfet.
           Tarzını, zevklerini ve yaşam alanını seç — biz sana özel seçkimizi hazırlayalım.
         </p>
 
@@ -45,7 +45,7 @@ export function StartScreen({ onStart }: StartScreenProps) {
         </button>
 
         <div className="mt-16 flex items-center gap-8 text-xs uppercase tracking-widest text-gray-500">
-          <span>10 Adım</span>
+          <span>9 Adım</span>
           <span className="h-1 w-1 rounded-full bg-gray-600" />
           <span>Görsel Quiz</span>
           <span className="h-1 w-1 rounded-full bg-gray-600" />
