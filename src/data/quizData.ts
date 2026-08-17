@@ -77,10 +77,10 @@ export const QUIZ_STEPS: QuizStep[] = [
     title: "Pencereyi Açtığınızda İçerinin Ne İle Dolmasını İstersin?",
     subtitle: "Size en iyi hissettiren ortamı seçin.",
     options: [
-      { id: "deniz", label: "Deniz Kenarı", image: image.sea, profile: ["Akuatik & Ferah", "Narenciye"] },
-      { id: "orman", label: "Yağmur Sonrası Orman", image: image.forest, profile: ["Aromatik & Yeşil", "Topraksı & Dumanlı"] },
-      { id: "portakal", label: "Portakal Bahçesi", image: image.portakal, profile: ["Narenciye", "Aromatik & Yeşil"] },
-      { id: "baharat", label: "Sıcak Baharat Esintisi", image: image.baharat, profile: ["Baharatlı", "Amber & Reçineli"] },
+      { id: "deniz", label: "Deniz Meltemi", image: image.sea, profile: ["Akuatik & Ferah", "Narenciye"] },
+      { id: "orman", label: "Yağmur Sonrası Orman Havası", image: image.forest, profile: ["Aromatik & Yeşil", "Topraksı & Dumanlı"] },
+      { id: "portakal", label: "Narenciye Bahçesi Esintisi", image: image.portakal, profile: ["Narenciye", "Aromatik & Yeşil"] },
+      { id: "baharat", label: "Sıcak Baharat Kokusu", image: image.baharat, profile: ["Baharatlı", "Amber & Reçineli"] },
     ],
   },
   {
