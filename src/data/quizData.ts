@@ -79,8 +79,8 @@ export const QUIZ_STEPS: QuizStep[] = [
     options: [
       { id: "deniz", label: "Deniz Kenarı", image: image.sea, profile: ["Akuatik & Ferah", "Narenciye"] },
       { id: "orman", label: "Yağmur Sonrası Orman", image: image.forest, profile: ["Aromatik & Yeşil", "Topraksı & Dumanlı"] },
-      { id: "portakal", label: "Portakal Bahçesi", image: image.mountain, profile: ["Narenciye", "Aromatik & Yeşil"] },
-      { id: "baharat", label: "Sıcak Baharat Esintisi", image: image.desert, profile: ["Baharatlı", "Amber & Reçineli"] },
+      { id: "portakal", label: "Portakal Bahçesi", image: image.portakal, profile: ["Narenciye", "Aromatik & Yeşil"] },
+      { id: "baharat", label: "Sıcak Baharat Esintisi", image: image.baharat, profile: ["Baharatlı", "Amber & Reçineli"] },
     ],
   },
   {
