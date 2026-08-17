@@ -74,13 +74,13 @@ export const QUIZ_STEPS: QuizStep[] = [
   },
   {
     id: "q2",
-    title: "Şu an hangi atmosferin içinde olmak isterdiniz?",
+    title: "Pencereyi Açtığınızda İçerinin Ne İle Dolmasını İstersin?",
     subtitle: "Size en iyi hissettiren ortamı seçin.",
     options: [
       { id: "deniz", label: "Deniz Kenarı", image: image.sea, profile: ["Akuatik & Ferah", "Narenciye"] },
       { id: "orman", label: "Yağmur Sonrası Orman", image: image.forest, profile: ["Aromatik & Yeşil", "Topraksı & Dumanlı"] },
       { id: "portakal", label: "Portakal Bahçesi", image: image.mountain, profile: ["Narenciye", "Aromatik & Yeşil"] },
-      { id: "col", label: "Sıcak Çöl Gün Batımı", image: image.desert, profile: ["Amber & Reçineli", "Baharatlı"] },
+      { id: "baharat", label: "Sıcak Baharat Esintisi", image: image.desert, profile: ["Baharatlı", "Amber & Reçineli"] },
     ],
   },
   {
