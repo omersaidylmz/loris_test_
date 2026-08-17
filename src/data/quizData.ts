@@ -17,7 +17,7 @@ export interface QuizStep {
 const image = {
   maskulen: "/images/cinsiyet/erkek.png",
   feminen: "/images/cinsiyet/kadın.png",
-  texture: "/images/kumaş/pamuk.png",
+  texture: "/images/kumaş/ipek.png",
   linen: "/images/kumaş/keten.png",
   velvet: "/images/kumaş/kadife.png",
   leather: "/images/kumaş/deri.png",
