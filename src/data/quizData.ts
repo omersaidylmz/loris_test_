@@ -143,10 +143,10 @@ export const QUIZ_STEPS: QuizStep[] = [
     title: "Bugün sizi hangi dünya anlatıyor?",
     subtitle: "Kendinizi en çok içinde hissettiğiniz dünyayı seçin.",
     options: [
-      { id: "aydinliksahil", label: "Aydınlık Sahil", image: image.beach, profile: ["Akuatik & Ferah", "Narenciye"] },
-      { id: "avlu", label: "Çiçekli Sakin Avlu", image: image.courtyard, profile: ["Çiçeksi", "Aromatik & Yeşil"] },
+      { id: "aydinliksahil", label: "Okyanus Kenarı", image: image.beach, profile: ["Akuatik & Ferah", "Narenciye"] },
+      { id: "avlu", label: "Çiçekli Sakin Bir Avlu", image: image.courtyard, profile: ["Çiçeksi", "Aromatik & Yeşil"] },
       { id: "koyuorman", label: "Yağmur Sonrası Gizemli Orman", image: image.darkForest, profile: ["Odunsu", "Topraksı & Dumanlı"] },
-      { id: "gecesalonu", label: "Loş ve Sıcak Gece Salonu", image: image.lounge, profile: ["Gourmand & Tatlı", "Amber & Reçineli"] },
+      { id: "gecesalonu", label: "Loş ve Sıcak Bir Salonu", image: image.lounge, profile: ["Gourmand & Tatlı", "Amber & Reçineli"] },
     ],
   },
 ];
