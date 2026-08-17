@@ -15,7 +15,8 @@ export interface QuizStep {
 }
 
 const image = {
-  identity: "/images/image.png",
+  maskulen: "/images/maskulen/image.png",
+  feminen: "/images/feminen/Ekran_goruntusu_2026-08-17_200909.png",
   texture: "https://images.pexels.com/photos/31650443/pexels-photo-31650443.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
   linen: "https://images.pexels.com/photos/7794365/pexels-photo-7794365.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
   velvet: "https://images.pexels.com/photos/7717505/pexels-photo-7717505.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
@@ -56,8 +57,8 @@ export const QUIZ_STEPS: QuizStep[] = [
     title: "Size en yakın koku kimliği hangisi?",
     subtitle: "Maskülen veya feminen yönelimi seçin.",
     options: [
-      { id: "maskulen", label: "Maskülen", image: image.identity, imagePosition: "0% 66%", profile: ["Odunsu", "Topraksı & Dumanlı", "Sıcak & Yoğun"] },
-      { id: "feminen", label: "Feminen", image: image.identity, imagePosition: "50% 66%", profile: ["Çiçeksi", "Meyvemsi & Tatlı", "Gourmand & Tatlı"] },
+      { id: "maskulen", label: "Maskülen", image: image.maskulen, profile: ["Odunsu", "Topraksı & Dumanlı", "Sıcak & Yoğun"] },
+      { id: "feminen", label: "Feminen", image: image.feminen, profile: ["Çiçeksi", "Meyvemsi & Tatlı", "Gourmand & Tatlı"] },
     ],
   },
   {
