@@ -1,0 +1,379 @@
+{
+  "scale": {
+    "min": 0,
+    "max": 10
+  },
+  "vector_order": [
+    "freshness",
+    "warmth",
+    "sweetness",
+    "intensity"
+  ],
+  "profile_formula": "For each layer and dimension: weighted mean of selected option vectors using question.layerWeights[layer].",
+  "questions": [
+    {
+      "id": "q1",
+      "title": "Hangi yüzey size daha yakın geliyor?",
+      "sense": "touch",
+      "layerWeights": {
+        "top": 0.1,
+        "middle": 0.55,
+        "base": 0.35
+      },
+      "options": [
+        {
+          "id": "ipek",
+          "label": "İpek",
+          "vector": {
+            "freshness": 5.5,
+            "warmth": 4.5,
+            "sweetness": 6.5,
+            "intensity": 3.0
+          }
+        },
+        {
+          "id": "keten",
+          "label": "Keten",
+          "vector": {
+            "freshness": 8.5,
+            "warmth": 2.0,
+            "sweetness": 1.5,
+            "intensity": 2.5
+          }
+        },
+        {
+          "id": "kadife",
+          "label": "Kadife",
+          "vector": {
+            "freshness": 2.0,
+            "warmth": 8.5,
+            "sweetness": 7.5,
+            "intensity": 7.0
+          }
+        },
+        {
+          "id": "deri",
+          "label": "Deri",
+          "vector": {
+            "freshness": 1.5,
+            "warmth": 8.0,
+            "sweetness": 1.0,
+            "intensity": 9.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "title": "Hangi ışık ortamında daha rahat hissedersiniz?",
+      "sense": "vision",
+      "layerWeights": {
+        "top": 0.65,
+        "middle": 0.25,
+        "base": 0.1
+      },
+      "options": [
+        {
+          "id": "sabah",
+          "label": "Sabah Işığı",
+          "vector": {
+            "freshness": 9.0,
+            "warmth": 2.0,
+            "sweetness": 2.0,
+            "intensity": 2.5
+          }
+        },
+        {
+          "id": "gunbatimi",
+          "label": "Gün Batımı",
+          "vector": {
+            "freshness": 3.5,
+            "warmth": 8.5,
+            "sweetness": 5.5,
+            "intensity": 6.0
+          }
+        },
+        {
+          "id": "ay",
+          "label": "Ay Işığı",
+          "vector": {
+            "freshness": 7.5,
+            "warmth": 1.5,
+            "sweetness": 1.5,
+            "intensity": 3.0
+          }
+        },
+        {
+          "id": "mum",
+          "label": "Mum Işığı",
+          "vector": {
+            "freshness": 2.0,
+            "warmth": 9.0,
+            "sweetness": 6.5,
+            "intensity": 5.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "title": "Hangi hareketi izlemek size daha iyi hissettirir?",
+      "sense": "vision_motion",
+      "layerWeights": {
+        "top": 0.6,
+        "middle": 0.3,
+        "base": 0.1
+      },
+      "options": [
+        {
+          "id": "tul",
+          "label": "Havada hafifçe süzülen tül",
+          "vector": {
+            "freshness": 9.0,
+            "warmth": 2.0,
+            "sweetness": 3.5,
+            "intensity": 1.5
+          }
+        },
+        {
+          "id": "su_halkalari",
+          "label": "Damlaların düşmesiyle suda yavaşça yayılan halkalar",
+          "vector": {
+            "freshness": 8.5,
+            "warmth": 2.0,
+            "sweetness": 2.0,
+            "intensity": 3.5
+          }
+        },
+        {
+          "id": "kivilcim",
+          "label": "Ateşin üzerinde parlayan kıvılcımlar",
+          "vector": {
+            "freshness": 2.5,
+            "warmth": 8.0,
+            "sweetness": 3.0,
+            "intensity": 9.0
+          }
+        },
+        {
+          "id": "bulut",
+          "label": "Bir bulutun gökyüzünde ağır ağır ilerlemesi",
+          "vector": {
+            "freshness": 6.0,
+            "warmth": 3.5,
+            "sweetness": 2.5,
+            "intensity": 4.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "title": "Hangi ses ortamı size daha yakın?",
+      "sense": "hearing",
+      "layerWeights": {
+        "top": 0.25,
+        "middle": 0.4,
+        "base": 0.35
+      },
+      "options": [
+        {
+          "id": "ruzgar_kuslar",
+          "label": "Hafif esen rüzgâr ve uzaktan gelen kuş sesleri",
+          "vector": {
+            "freshness": 9.0,
+            "warmth": 2.0,
+            "sweetness": 2.5,
+            "intensity": 2.0
+          }
+        },
+        {
+          "id": "yagmur",
+          "label": "Sakin yağmurun cama vuran düzenli sesi",
+          "vector": {
+            "freshness": 7.5,
+            "warmth": 2.5,
+            "sweetness": 2.5,
+            "intensity": 4.0
+          }
+        },
+        {
+          "id": "somine",
+          "label": "Şöminede yanan odunların çıtırtısı",
+          "vector": {
+            "freshness": 1.5,
+            "warmth": 9.0,
+            "sweetness": 4.5,
+            "intensity": 6.5
+          }
+        },
+        {
+          "id": "derin_muzik",
+          "label": "Yavaş tempolu, derin tonlara sahip bir müzik",
+          "vector": {
+            "freshness": 2.0,
+            "warmth": 6.5,
+            "sweetness": 2.5,
+            "intensity": 8.5
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "title": "Hangi form size daha çekici geliyor?",
+      "sense": "visual_form",
+      "layerWeights": {
+        "top": 0.15,
+        "middle": 0.55,
+        "base": 0.3
+      },
+      "options": [
+        {
+          "id": "organik",
+          "label": "Yumuşak hatlara sahip akışkan ve organik bir form",
+          "vector": {
+            "freshness": 4.5,
+            "warmth": 5.5,
+            "sweetness": 8.0,
+            "intensity": 3.0
+          }
+        },
+        {
+          "id": "simetrik",
+          "label": "Dengeli, sade ve simetrik geometrik bir form",
+          "vector": {
+            "freshness": 6.5,
+            "warmth": 3.5,
+            "sweetness": 3.5,
+            "intensity": 4.0
+          }
+        },
+        {
+          "id": "kristal",
+          "label": "Keskin köşelere sahip, kristalimsi bir form",
+          "vector": {
+            "freshness": 7.0,
+            "warmth": 3.0,
+            "sweetness": 1.0,
+            "intensity": 8.0
+          }
+        },
+        {
+          "id": "katmanli",
+          "label": "Katmanlı, düzensiz ve derinlik hissi veren karmaşık bir form",
+          "vector": {
+            "freshness": 2.5,
+            "warmth": 6.0,
+            "sweetness": 2.5,
+            "intensity": 9.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "title": "Şu an kapıyı açtınız. Nerede olmak isterdiniz?",
+      "sense": "visual_environment",
+      "layerWeights": {
+        "top": 0.1,
+        "middle": 0.3,
+        "base": 0.6
+      },
+      "options": [
+        {
+          "id": "deniz",
+          "label": "Deniz kenarında, açık ve ferah bir kıyıda",
+          "vector": {
+            "freshness": 10.0,
+            "warmth": 2.0,
+            "sweetness": 1.5,
+            "intensity": 4.0
+          }
+        },
+        {
+          "id": "bahce",
+          "label": "Çiçeklerle çevrili, sakin bir bahçede",
+          "vector": {
+            "freshness": 6.0,
+            "warmth": 5.0,
+            "sweetness": 7.5,
+            "intensity": 4.5
+          }
+        },
+        {
+          "id": "teras",
+          "label": "Gün batımında, sıcak ve huzurlu bir terasta",
+          "vector": {
+            "freshness": 3.5,
+            "warmth": 8.0,
+            "sweetness": 5.5,
+            "intensity": 5.5
+          }
+        },
+        {
+          "id": "orman",
+          "label": "Derin ve sessiz bir ormanın içinde",
+          "vector": {
+            "freshness": 3.0,
+            "warmth": 4.5,
+            "sweetness": 1.5,
+            "intensity": 8.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "title": "Hangi tat hissi size daha yakın geliyor?",
+      "sense": "taste",
+      "layerWeights": {
+        "top": 0.15,
+        "middle": 0.55,
+        "base": 0.3
+      },
+      "options": [
+        {
+          "id": "eksimsi",
+          "label": "Canlı ve ekşimsi",
+          "vector": {
+            "freshness": 8.5,
+            "warmth": 2.0,
+            "sweetness": 0.5,
+            "intensity": 6.5
+          }
+        },
+        {
+          "id": "yesil",
+          "label": "Ferah ve yeşil",
+          "vector": {
+            "freshness": 8.0,
+            "warmth": 2.5,
+            "sweetness": 1.5,
+            "intensity": 4.0
+          }
+        },
+        {
+          "id": "tatli",
+          "label": "Yumuşak ve tatlı",
+          "vector": {
+            "freshness": 3.0,
+            "warmth": 6.5,
+            "sweetness": 10.0,
+            "intensity": 4.0
+          }
+        },
+        {
+          "id": "baharatli",
+          "label": "Sıcak ve baharatlı",
+          "vector": {
+            "freshness": 2.0,
+            "warmth": 9.0,
+            "sweetness": 2.5,
+            "intensity": 8.5
+          }
+        }
+      ]
+    }
+  ]
+}

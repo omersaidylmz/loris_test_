@@ -10,6 +10,7 @@ import { buildUserProfile, quizAnswersFromOptionIds } from "./profileBuilder";
 import { getEnrichedPerfumes } from "./perfumeEnricher";
 import { rankCandidates, vectorRetrieval } from "./structuredScorer";
 import { RECOMMENDATION_CONFIG } from "./config";
+import { recommendFourD } from "./fourDScorer";
 
 function buildFallbackRecommendations(
   candidates: ScoredCandidate[],
@@ -142,6 +143,7 @@ export function recommendSync(
   selectedIdsPerStep: string[][],
   filters?: RecommendationFilters,
 ): RecommendationResult {
+  if (filters) return recommendFourD(selectedIdsPerStep, filters);
   const t0 = performance.now();
 
   const answers = quizAnswersFromOptionIds(selectedIdsPerStep);
