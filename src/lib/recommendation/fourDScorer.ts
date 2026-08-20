@@ -38,7 +38,12 @@ export function recommendFourD(selectedIds: string[][], filters: RecommendationF
   const genderMap: Record<string, string> = { kadin: "female", erkek: "male", unisex: "unisex", feminine: "female", masculine: "male" };
   const selectedGender = genderMap[normalize(filters.gender)] ?? normalize(filters.gender);
   const selectedCollection = normalize(filters.collection);
-  const eligible = products.filter((p) => p.recommendation_eligible !== false && normalize(p.gender_profile) === selectedGender && normalize(p.collection) === selectedCollection);
+  const catalog = products.filter((p) => p.recommendation_eligible !== false);
+  const byCollection = catalog.filter((p) => normalize(p.collection) === selectedCollection);
+  const strictEligible = byCollection.filter((p) => normalize(p.gender_profile) === selectedGender);
+  // Gender is a preference filter; if that combination has no catalog items,
+  // keep the requested collection and rank its closest available fragrances.
+  const eligible = strictEligible.length > 0 ? strictEligible : byCollection.length > 0 ? byCollection : catalog;
   const candidates: ScoredCandidate[] = eligible.map((product) => {
     const perfume = toPerfume(product);
     const score = 1 - mean([distance(target.top, product.top_notes_vector), distance(target.middle, product.middle_notes_vector), distance(target.base, product.base_notes_vector)]);
