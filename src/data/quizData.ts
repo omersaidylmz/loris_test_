@@ -15,9 +15,6 @@ export interface QuizStep {
 }
 
 const image = {
-  maskulen: "/images/cinsiyet/erkek.png",
-  feminen: "/images/cinsiyet/kadın.png",
-  unisex: "/images/cinsiyet/unisex.png",
   texture: "/images/kumaş/ipek.png",
   linen: "/images/kumaş/keten.png",
   velvet: "/images/kumaş/kadife.png",
@@ -53,16 +50,6 @@ const image = {
 };
 
 export const QUIZ_STEPS: QuizStep[] = [
-  {
-    id: "identity",
-    title: "Size en yakın koku kimliği hangisi?",
-    subtitle: "Maskülen veya feminen yönelimi seçin.",
-    options: [
-      { id: "maskulen", label: "Maskülen", image: image.maskulen, profile: ["Odunsu", "Topraksı & Dumanlı", "Sıcak & Yoğun"] },
-      { id: "feminen", label: "Feminen", image: image.feminen, profile: ["Çiçeksi", "Meyvemsi & Tatlı", "Gourmand & Tatlı"] },
-      { id: "unisex", label: "Unisex", image: image.unisex, profile: ["Çiçeksi", "Meyvemsi & Tatlı", "Gourmand & Tatlı"] }
-    ],
-  },
   {
     id: "q1",
     title: "Elinize hangi doku daha yakın geliyor?",

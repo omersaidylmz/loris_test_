@@ -4,6 +4,7 @@ interface FilterOption {
   id: string;
   label: string;
   description: string;
+  image?: string;
 }
 
 interface FilterScreenProps {
@@ -32,6 +33,9 @@ export function FilterScreen({ title, subtitle, options, selectedId, onSelect, o
                 className="relative min-h-40 rounded-2xl border-2 p-6 text-left transition-all hover:-translate-y-1 hover:border-amber-300/60"
                 style={{ borderColor: selected ? "rgb(251 191 36)" : "rgba(255,255,255,0.1)", background: selected ? "rgba(251,191,36,0.1)" : "rgba(255,255,255,0.04)" }}>
                 {selected && <span className="absolute right-4 top-4 flex size-7 items-center justify-center rounded-full bg-amber-400 text-black"><Check className="size-4" strokeWidth={3} /></span>}
+                {option.image && (
+                  <img src={option.image} alt={`${option.label} seçeneği`} className="mb-5 h-44 w-full rounded-xl object-cover" />
+                )}
                 <span className="font-serif text-2xl">{option.label}</span>
                 <span className="mt-3 block text-sm leading-6 text-gray-400">{option.description}</span>
               </button>
@@ -50,13 +54,13 @@ export function FilterScreen({ title, subtitle, options, selectedId, onSelect, o
 }
 
 export const GENDER_OPTIONS = [
-  { id: "Kadın", label: "Feminen", description: "Çiçeksi, zarif ve yumuşak koku karakterleri." },
-  { id: "Erkek", label: "Maskülen", description: "Odunsu, aromatik ve güçlü koku karakterleri." },
-  { id: "Unisex", label: "Unisex", description: "Her stile uyum sağlayan dengeli kokular." },
+  { id: "Kadın", label: "Feminen", description: "Çiçeksi, zarif ve yumuşak koku karakterleri.", image: "/images/cinsiyet/kadın.png" },
+  { id: "Erkek", label: "Maskülen", description: "Odunsu, aromatik ve güçlü koku karakterleri.", image: "/images/cinsiyet/erkek.png" },
+  { id: "Unisex", label: "Unisex", description: "Her stile uyum sağlayan dengeli kokular.", image: "/images/cinsiyet/unisex.png" },
 ];
 
 export const COLLECTION_OPTIONS = [
-  { id: "Frequence", label: "Frequence", description: "Günlük kullanıma uygun, erişilebilir koku dünyası." },
-  { id: "Kreasyon", label: "Kreasyon", description: "Özgün ve yaratıcı kompozisyonları keşfedin." },
-  { id: "Niche", label: "Niche", description: "Daha seçkin ve karakter sahibi koku profilleri." },
+  { id: "Frequence", label: "Frequence", description: "Günlük kullanıma uygun, erişilebilir koku dünyası.", image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/frequence-9A6s1URVPv2yhjaEu3k5BAmmN8DBPs.png" },
+  { id: "Kreasyon", label: "Kreasyon", description: "Özgün ve yaratıcı kompozisyonları keşfedin.", image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/kreasyon-m7lebfjESPqZQgW639jR7r5NzPOyPh.png" },
+  { id: "Niche", label: "Niche", description: "Daha seçkin ve karakter sahibi koku profilleri.", image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/niche-SVy2oy0J2SiQNLTy1UgOOEocl3jAZ1.png" },
 ];
