@@ -1,20 +1,23 @@
 import { useState, useCallback } from "react";
 import { StartScreen } from "@/components/StartScreen";
+import { FilterScreen, GENDER_OPTIONS, COLLECTION_OPTIONS } from "@/components/FilterScreen";
 import { QuizScreen } from "@/components/QuizScreen";
 import { ResultsScreen } from "@/components/ResultsScreen";
 import { QUIZ_STEPS } from "@/data/quizData";
 import type { RecommendationResult } from "@/lib/recommendation/types";
 
-type Phase = "start" | "quiz" | "results" | "loading";
+type Phase = "start" | "gender" | "collection" | "quiz" | "results" | "loading";
 
 function App() {
   const [phase, setPhase] = useState<Phase>("start");
   const [stepIndex, setStepIndex] = useState(0);
   const [answers, setAnswers] = useState<string[][]>([]);
+  const [gender, setGender] = useState("Unisex");
+  const [collection, setCollection] = useState("Frequence");
   const [recommendation, setRecommendation] = useState<RecommendationResult | null>(null);
 
   const handleStart = useCallback(() => {
-    setPhase("quiz");
+    setPhase("gender");
     setStepIndex(0);
     setAnswers([]);
   }, []);
@@ -30,7 +33,7 @@ function App() {
       } else {
         setPhase("loading");
         import("@/lib/recommendation/api").then(({ getRecommendations }) => {
-          getRecommendations(newAnswers).then((result) => {
+          getRecommendations(newAnswers, { gender, collection }).then((result) => {
             setRecommendation(result);
             setPhase("results");
           }).catch(() => {
@@ -41,7 +44,7 @@ function App() {
         });
       }
     },
-    [stepIndex, answers],
+    [stepIndex, answers, gender, collection],
   );
 
   const handleBack = useCallback(() => {
@@ -61,6 +64,14 @@ function App() {
 
   if (phase === "start") {
     return <StartScreen onStart={handleStart} />;
+  }
+
+  if (phase === "gender") {
+    return <FilterScreen title="Koku kimliğinizi seçin" subtitle="Önce önerileri daraltmak için aradığınız cinsiyet profilini belirleyin." options={GENDER_OPTIONS} selectedId={gender} onSelect={setGender} onContinue={() => setPhase("collection")} />;
+  }
+
+  if (phase === "collection") {
+    return <FilterScreen title="Koleksiyonunuzu seçin" subtitle="Frequence, Kreasyon veya Niche koleksiyonlarından size uygun olanı seçin." options={COLLECTION_OPTIONS} selectedId={collection} onSelect={setCollection} onContinue={() => setPhase("quiz")} />;
   }
 
   if (phase === "loading") {

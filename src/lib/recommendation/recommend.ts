@@ -61,9 +61,25 @@ export interface RecommendOptions {
   llmRerank?: (candidates: ScoredCandidate[], userProfile: UserScentProfile) => Promise<RecommendationItem[]>;
 }
 
+export interface RecommendationFilters {
+  gender: string;
+  collection: string;
+}
+
+function filterPerfumes(perfumes: PerfumeEnriched[], filters?: RecommendationFilters): PerfumeEnriched[] {
+  if (!filters) return perfumes;
+  return perfumes.filter((perfume) => {
+    const genderMap: Record<string, string> = { Kadın: "female", Erkek: "male", Unisex: "unisex" };
+    const genderMatch = perfume.gender_profile === (genderMap[filters.gender] ?? "unisex");
+    const collectionMatch = perfume.name.toLocaleLowerCase("tr-TR").includes(filters.collection.toLocaleLowerCase("tr-TR"));
+    return genderMatch && collectionMatch;
+  });
+}
+
 export async function recommend(
   selectedIdsPerStep: string[][],
   options: RecommendOptions = {},
+  filters?: RecommendationFilters,
 ): Promise<RecommendationResult> {
   const t0 = performance.now();
 
@@ -71,7 +87,7 @@ export async function recommend(
   const userProfile = buildUserProfile(answers);
   const tProfile = performance.now();
 
-  const allPerfumes = getEnrichedPerfumes();
+  const allPerfumes = filterPerfumes(getEnrichedPerfumes(), filters);
   const semanticCandidates = vectorRetrieval(userProfile, allPerfumes);
   const ranked = rankCandidates(userProfile, semanticCandidates);
   const tRank = performance.now();
@@ -124,6 +140,7 @@ export async function recommend(
 
 export function recommendSync(
   selectedIdsPerStep: string[][],
+  filters?: RecommendationFilters,
 ): RecommendationResult {
   const t0 = performance.now();
 
@@ -131,7 +148,7 @@ export function recommendSync(
   const userProfile = buildUserProfile(answers);
   const tProfile = performance.now();
 
-  const allPerfumes = getEnrichedPerfumes();
+  const allPerfumes = filterPerfumes(getEnrichedPerfumes(), filters);
   const semanticCandidates = vectorRetrieval(userProfile, allPerfumes);
   const ranked = rankCandidates(userProfile, semanticCandidates);
   const tRank = performance.now();

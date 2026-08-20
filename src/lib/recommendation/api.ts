@@ -1,6 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import type { RecommendationResult, RecommendationItem, ScoredCandidate, PerfumeEnriched } from "./types";
-import { recommendSync } from "./recommend";
+import { recommendSync, type RecommendationFilters } from "./recommend";
 import { getEnrichedPerfumes } from "./perfumeEnricher";
 import { buildUserProfile, quizAnswersFromOptionIds } from "./profileBuilder";
 
@@ -16,10 +16,11 @@ interface EdgeFunctionResponse {
 
 export async function getRecommendations(
   selectedIdsPerStep: string[][],
+  filters?: RecommendationFilters,
 ): Promise<RecommendationResult> {
   const t0 = performance.now();
 
-  const syncResult = recommendSync(selectedIdsPerStep);
+  const syncResult = recommendSync(selectedIdsPerStep, filters);
 
   try {
     const userProfile = buildUserProfile(quizAnswersFromOptionIds(selectedIdsPerStep));
