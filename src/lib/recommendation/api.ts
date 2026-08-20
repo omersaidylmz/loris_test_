@@ -1,13 +1,7 @@
-import { createClient } from "@supabase/supabase-js";
-import type { RecommendationResult, RecommendationItem, ScoredCandidate, PerfumeEnriched } from "./types";
+import type { RecommendationResult, RecommendationItem, PerfumeEnriched } from "./types";
 import { recommendSync, type RecommendationFilters } from "./recommend";
 import { getEnrichedPerfumes } from "./perfumeEnricher";
 import { buildUserProfile, quizAnswersFromOptionIds } from "./profileBuilder";
-
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string;
-
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 interface EdgeFunctionResponse {
   recommendations: RecommendationItem[];
@@ -24,6 +18,11 @@ export async function getRecommendations(
 
   try {
     const userProfile = buildUserProfile(quizAnswersFromOptionIds(selectedIdsPerStep));
+    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string | undefined;
+    const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined;
+    if (!supabaseUrl || !supabaseAnonKey) return syncResult;
+    const { createClient } = await import("@supabase/supabase-js");
+    const supabase = createClient(supabaseUrl, supabaseAnonKey);
     const allPerfumes = getEnrichedPerfumes();
     const perfumeMap = new Map(allPerfumes.map((p) => [p.id, p]));
 
