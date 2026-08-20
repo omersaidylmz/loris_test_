@@ -7,7 +7,7 @@ interface StartScreenProps {
 
 export function StartScreen({ onStart }: StartScreenProps) {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#0a0a0a] text-white">
+    <div className="relative min-h-screen overflow-hidden bg-[#fff8f0] text-[#2a1f2d]">
       {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center opacity-40"
@@ -17,7 +17,7 @@ export function StartScreen({ onStart }: StartScreenProps) {
         }}
       />
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#fff8f0]/75 via-[#fff8f0]/55 to-[#fff8f0]/85" />
 
       {/* Content */}
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 py-16 text-center">
@@ -27,7 +27,7 @@ export function StartScreen({ onStart }: StartScreenProps) {
           <img
             src={lorisLogo}
             alt="LORİS"
-            className="h-16 w-auto object-contain drop-shadow-[0_0_12px_rgba(251,191,36,0.18)]"
+            className="h-16 w-auto object-contain drop-shadow-[0_0_12px_rgba(120,53,15,0.18)]"
           />
         </div>
 
@@ -35,13 +35,13 @@ export function StartScreen({ onStart }: StartScreenProps) {
         <h1 className="font-serif text-5xl font-light leading-tight tracking-tight sm:text-6xl md:text-7xl">
           Kişisel Koku Profili
 
-          <span className="block text-amber-300">
+          <span className="block text-[#b45309]">
             Keşif Yolculuğu
           </span>
         </h1>
 
         {/* Description */}
-        <p className="mt-6 max-w-xl text-base leading-relaxed text-gray-300 sm:text-lg">
+        <p className="mt-6 max-w-xl text-base leading-relaxed text-[#5b4a5f] sm:text-lg">
           Kişisel Koku Profilinizi keşfettiğiniz bu özel yolculukta,
           LORİS olarak size eşlik etmekten ve ruhunuza hitap eden kokuyu
           keşfederek sizi imza kokunuza bir adım daha yaklaştırmaktan
@@ -51,7 +51,7 @@ export function StartScreen({ onStart }: StartScreenProps) {
         {/* Start Button */}
         <button
           onClick={onStart}
-          className="group mt-10 inline-flex items-center gap-3 rounded-full bg-amber-400 px-8 py-4 text-base font-semibold text-black transition-all hover:bg-amber-300 hover:shadow-[0_0_40px_rgba(251,191,36,0.4)] active:scale-95"
+          className="group mt-10 inline-flex items-center gap-3 rounded-full bg-[#f59e0b] px-8 py-4 text-base font-semibold text-white transition-all hover:bg-[#d97706] hover:shadow-[0_0_40px_rgba(245,158,11,0.3)] active:scale-95"
         >
           Yolculuğa Başla
 
@@ -62,27 +62,27 @@ export function StartScreen({ onStart }: StartScreenProps) {
         <div className="mt-16 flex flex-col items-center">
 
           {/* Journey Words */}
-          <div className="flex items-center gap-8 text-xs uppercase tracking-widest text-gray-500">
+          <div className="flex items-center gap-8 text-xs uppercase tracking-widest text-[#7c687f]">
             <span>HİSSET</span>
 
-            <span className="h-1 w-1 rounded-full bg-gray-600" />
+            <span className="h-1 w-1 rounded-full bg-[#c8a9c1]" />
 
             <span>KEŞFET</span>
 
-            <span className="h-1 w-1 rounded-full bg-gray-600" />
+            <span className="h-1 w-1 rounded-full bg-[#c8a9c1]" />
 
             <span>DENEYİMLE</span>
           </div>
 
           {/* Brand Signature */}
           <div className="mt-7 flex items-center gap-4">
-            <div className="h-px w-10 bg-amber-300/30" />
+            <div className="h-px w-10 bg-[#b45309]/30" />
 
-            <span className="text-base font-medium uppercase tracking-[0.4em] text-amber-200/80">
+            <span className="text-base font-medium uppercase tracking-[0.4em] text-[#92400e]">
               PARFÜM LORİSTİR
             </span>
 
-            <div className="h-px w-10 bg-amber-300/30" />
+            <div className="h-px w-10 bg-[#b45309]/30" />
           </div>
         </div>
       </div>

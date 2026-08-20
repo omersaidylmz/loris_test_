@@ -38,8 +38,21 @@ export function ResultsScreen({ recommendation, onRestart }: ResultsScreenProps)
   const topMatch = recommendations[0];
   const topPerfume = topMatch ? perfumeMap.get(topMatch.perfumeId) : undefined;
 
+  if (recommendations.length === 0) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-background px-6 text-center text-foreground">
+        <div className="max-w-lg">
+          <Sparkles className="mx-auto size-10 text-primary" />
+          <h1 className="mt-5 font-serif text-4xl">Bu filtrelerde eşleşme bulunamadı</h1>
+          <p className="mt-4 leading-7 text-muted-foreground">Seçtiğiniz cinsiyet ve koleksiyon için henüz uygun bir parfüm bulunamadı. Başka bir kombinasyon deneyin.</p>
+          <button onClick={onRestart} className="mt-8 rounded-full bg-primary px-6 py-3 font-medium text-primary-foreground">Filtreleri Değiştir</button>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="mx-auto max-w-5xl px-6 py-12">
         {/* Header */}
         <div className="mb-12 text-center">
@@ -66,7 +79,7 @@ export function ResultsScreen({ recommendation, onRestart }: ResultsScreenProps)
 
         {/* Top match with radar */}
         {topMatch && topPerfume && (
-          <div className="mb-10 rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent p-6 sm:p-8">
+          <div className="mb-10 rounded-3xl border border-primary/20 bg-card shadow-xl shadow-primary/10 p-6 sm:p-8">
             <div className="grid items-center gap-8 md:grid-cols-2">
               <div>
                 <span className="text-xs uppercase tracking-widest text-amber-300">
@@ -128,7 +141,7 @@ export function ResultsScreen({ recommendation, onRestart }: ResultsScreenProps)
             return (
               <div
                 key={rec.perfumeId}
-                className="overflow-hidden rounded-2xl border border-white/10 bg-white/5"
+                className="overflow-hidden rounded-2xl border border-border bg-card"
               >
                 <button
                   onClick={() => setExpandedId(isExpanded ? null : rec.perfumeId)}

@@ -5,9 +5,15 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    color: #2a1f2d;
+    background: #fff8f0;
+  }
+
   body {
     font-family: 'Inter', sans-serif;
-    background-color: #0a0a0a;
+    background-color: #fff8f0;
+    color: #2a1f2d;
   }
 
   .font-serif {
@@ -24,7 +30,7 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: #fff8f0;
 }
 
 ::-webkit-scrollbar-thumb {

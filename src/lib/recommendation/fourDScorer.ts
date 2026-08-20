@@ -7,6 +7,7 @@ type Vector = { freshness: number; warmth: number; sweetness: number; intensity:
 const dimensions: (keyof Vector)[] = ["freshness", "warmth", "sweetness", "intensity"];
 
 function mean(values: number[]) { return values.length ? values.reduce((a, b) => a + b, 0) / values.length : 0; }
+function normalize(value: unknown) { return String(value ?? "").trim().toLocaleLowerCase("tr-TR").normalize("NFD").replace(/[\u0300-\u036f]/g, ""); }
 function avgVector(vectors: Vector[]): Vector { return Object.fromEntries(dimensions.map((d) => [d, mean(vectors.map((v) => v[d]))])) as Vector; }
 function distance(a: Vector, b: Vector) { return Math.sqrt(mean(dimensions.map((d) => ((a[d] - b[d]) / 10) ** 2))); }
 
@@ -34,8 +35,10 @@ export function recommendFourD(selectedIds: string[][], filters: RecommendationF
     });
   });
   const target = { top: avgVector(layerVectors.top), middle: avgVector(layerVectors.middle), base: avgVector(layerVectors.base) };
-  const genderMap: Record<string, string> = { Kadın: "female", Erkek: "male", Unisex: "unisex" };
-  const eligible = products.filter((p) => p.recommendation_eligible !== false && p.gender_profile === (genderMap[filters.gender] ?? filters.gender.toLowerCase()) && p.collection.toLowerCase() === filters.collection.toLowerCase());
+  const genderMap: Record<string, string> = { kadin: "female", erkek: "male", unisex: "unisex", feminine: "female", masculine: "male" };
+  const selectedGender = genderMap[normalize(filters.gender)] ?? normalize(filters.gender);
+  const selectedCollection = normalize(filters.collection);
+  const eligible = products.filter((p) => p.recommendation_eligible !== false && normalize(p.gender_profile) === selectedGender && normalize(p.collection) === selectedCollection);
   const candidates: ScoredCandidate[] = eligible.map((product) => {
     const perfume = toPerfume(product);
     const score = 1 - mean([distance(target.top, product.top_notes_vector), distance(target.middle, product.middle_notes_vector), distance(target.base, product.base_notes_vector)]);
